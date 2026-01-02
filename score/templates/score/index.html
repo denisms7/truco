@@ -15,13 +15,13 @@
            class="language-link {% if LANGUAGE_CODE == 'pt-br' %}active{% endif %}"
            title="Português"
            aria-label="{% trans 'Mudar para Português' %}">
-            <img src="https://flagcdn.com/w40/br.png" alt="PT" class="flag-icon">
+            <img src="{% static 'img/br.png' %}" alt="PT" class="flag-icon">
         </a>
         <a href="{% url 'score:set_language' %}?lang=es"
            class="language-link {% if LANGUAGE_CODE == 'es' %}active{% endif %}"
            title="Español"
            aria-label="{% trans 'Mudar para Espanhol' %}">
-            <img src="https://flagcdn.com/w40/es.png" alt="ES" class="flag-icon">
+            <img src="{% static 'img/es.png' %}" alt="ES" class="flag-icon">
         </a>
     </div>
 </div>
