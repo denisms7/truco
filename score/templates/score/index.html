@@ -9,14 +9,16 @@
 <div id="confetti" class="confetti"></div>
 
 <!-- Language Switcher -->
-<div style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
-    <div style="display: flex; gap: 5px; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 20px;">
+<div class="language-switcher">
+    <div class="language-switcher-container">
         <a href="{% url 'score:set_language' %}?lang=pt-br"
-           style="text-decoration: none; font-size: 18px; {% if LANGUAGE_CODE == 'pt-br' %}opacity: 1;{% else %}opacity: 0.5;{% endif %}"
-           title="Português">🇧🇷</a>
+           class="language-link {% if LANGUAGE_CODE == 'pt-br' %}active{% endif %}"
+           title="Português"
+           aria-label="{% trans 'Mudar para Português' %}">🇧🇷</a>
         <a href="{% url 'score:set_language' %}?lang=es"
-           style="text-decoration: none; font-size: 18px; {% if LANGUAGE_CODE == 'es' %}opacity: 1;{% else %}opacity: 0.5;{% endif %}"
-           title="Español">🇪🇸</a>
+           class="language-link {% if LANGUAGE_CODE == 'es' %}active{% endif %}"
+           title="Español"
+           aria-label="{% trans 'Mudar para Espanhol' %}">🇪🇸</a>
     </div>
 </div>
 

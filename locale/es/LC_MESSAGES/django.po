@@ -77,3 +77,9 @@ msgstr "Partida"
 
 msgid "Vencedor"
 msgstr "Ganador"
+
+msgid "Mudar para Português"
+msgstr "Cambiar a Portugués"
+
+msgid "Mudar para Espanhol"
+msgstr "Cambiar a Español"
