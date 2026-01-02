@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /media/private/
+
+# Crawl-delay for polite crawlers
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://seudominio.com/sitemap.xml

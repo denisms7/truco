@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- SEO Meta Tags -->
+    <title>{% block title %}Placar de Truco Digital - Contador Online Grátis{% endblock %}</title>
+    <meta name="description" content="{% block description %}Placar digital de truco online grátis. Acompanhe seus jogos de truco, marque pontos e tentos facilmente. Interface moderna e intuitiva para jogar truco com amigos.{% endblock %}" />
+    <meta name="keywords" content="truco, placar de truco, contador de truco, truco online, marcador de truco, placar digital, jogo de truco, pontuação truco, truco paulista, truco mineiro" />
+    <meta name="author" content="Placar de Truco" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Portuguese" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="theme-color" content="#1a1a1a" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/icone.png' %}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/icone.png' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/icone.png' %}" />
+    <link rel="shortcut icon" href="{% static 'img/icone.png' %}" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{% block og_url %}{{ request.build_absolute_uri }}{% endblock %}" />
+    <meta property="og:title" content="{% block og_title %}Placar de Truco Digital - Contador Online Grátis{% endblock %}" />
+    <meta property="og:description" content="{% block og_description %}Placar digital de truco online grátis. Marque pontos e tentos facilmente com interface moderna e intuitiva.{% endblock %}" />
+    <meta property="og:image" content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'img/icone.png' %}{% endblock %}" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Placar de Truco" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="{% block twitter_url %}{{ request.build_absolute_uri }}{% endblock %}" />
+    <meta name="twitter:title" content="{% block twitter_title %}Placar de Truco Digital - Contador Online Grátis{% endblock %}" />
+    <meta name="twitter:description" content="{% block twitter_description %}Placar digital de truco online grátis. Marque pontos e tentos facilmente.{% endblock %}" />
+    <meta name="twitter:image" content="{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'img/icone.png' %}{% endblock %}" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{% block canonical %}{{ request.build_absolute_uri }}{% endblock %}" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{% static 'css/grid.css' %}">
+    <link rel="stylesheet" href="{% static 'css/btn.css' %}">
+    <link rel="stylesheet" href="{% static 'css/winner.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+
+    {% block content %}
+    {% endblock content %}
+
+    {% block script %}
+    {% endblock script %}
+
+</body>
+
+</html>
