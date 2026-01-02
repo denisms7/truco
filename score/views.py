@@ -1,9 +1,13 @@
+import logging
 from django.views.generic import TemplateView
 from django.http import JsonResponse
 from django.views import View
 from django.views.decorators.http import require_POST
 from django.utils.decorators import method_decorator
-from score.services import salvar_partida
+from score.services import save_score
+
+
+logger = logging.getLogger(__name__)
 
 
 class HomeTemplateView(TemplateView):
@@ -75,9 +79,16 @@ class ModifyView(View):
                 score_b -= 1
 
         if winner:
-            salvar_partida(winner, score_a, score_b)
-            score_a = 0
-            score_b = 0
+            partida = save_score(winner, score_a, score_b)
+            if partida:
+                logger.info(f"Partida salva: {partida.id}")
+                score_a = 0
+                score_b = 0
+            else:
+                logger.warning("Falha ao salvar partida, mas o jogo continua")
+                # Mesmo com erro ao salvar, resetamos o placar para continuar jogando
+                score_a = 0
+                score_b = 0
 
         request.session["score_a"] = score_a
         request.session["score_b"] = score_b
