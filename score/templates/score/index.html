@@ -3,6 +3,8 @@
 
 {% block content %}
 
+{% csrf_token %}
+
 <div id="confetti" class="confetti"></div>
 
 <div class="container">
@@ -146,16 +148,16 @@
     <p>Placar de Truco DMS Sistemas &copy; 2026</p>
 </footer>
 
+<script>
+    window.STATUS_PLACAR_URL = "{% url 'score:status' %}";
+    window.ALTERAR_PONTUACAO_URL = "{% url 'score:alterar' %}";
+    window.RESETAR_PLACAR_URL = "{% url 'score:reset' %}";
+</script>
+
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/victory.js' %}"></script>
+
 {% endblock %}
 
 
-{% block script %}
-    <script>
-        window.STATUS_PLACAR_URL = "{% url 'score:status' %}";
-        window.ALTERAR_PONTUACAO_URL = "{% url 'score:alterar' %}";
-        window.RESETAR_PLACAR_URL = "{% url 'score:reset' %}";
-    </script>
 
-    <script src="{% static 'js/main.js' %}"></script>
-    <script src="{% static 'js/victory.js' %}"></script>
-{% endblock script %}
