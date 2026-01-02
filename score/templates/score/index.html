@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
@@ -7,10 +8,22 @@
 
 <div id="confetti" class="confetti"></div>
 
+<!-- Language Switcher -->
+<div style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+    <div style="display: flex; gap: 5px; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 20px;">
+        <a href="{% url 'score:set_language' %}?lang=pt-br"
+           style="text-decoration: none; font-size: 18px; {% if LANGUAGE_CODE == 'pt-br' %}opacity: 1;{% else %}opacity: 0.5;{% endif %}"
+           title="Português">🇧🇷</a>
+        <a href="{% url 'score:set_language' %}?lang=es"
+           style="text-decoration: none; font-size: 18px; {% if LANGUAGE_CODE == 'es' %}opacity: 1;{% else %}opacity: 0.5;{% endif %}"
+           title="Español">🇪🇸</a>
+    </div>
+</div>
+
 <div class="container">
     <!-- Área de Anúncio - Topo -->
     <div class="ad-container ad-top">
-        <div class="ad-label">Publicidade</div>
+        <div class="ad-label">{% trans "Publicidade" %}</div>
         <!-- Google AdSense - Banner Topo -->
         <div class="ad-content">
             <!-- Cole aqui seu código do Google AdSense -->
@@ -18,7 +31,7 @@
 
             <!-- Placeholder temporário - REMOVA após adicionar seu anúncio -->
             <div class="ad-placeholder">
-                <span>📢 Espaço reservado para anúncio</span>
+                <span>📢 {% trans "Espaço reservado para anúncio" %}</span>
                 <small>Banner 728x90</small>
             </div>
         </div>
@@ -27,7 +40,7 @@
     <!-- Header -->
     <header class="game-header">
         <h1 class="game-title">TRUCO</h1>
-        <p class="game-subtitle d-none">Placar Digital</p>
+        <p class="game-subtitle d-none">{% trans "Placar Digital" %}</p>
     </header>
 
     <!-- Score Grid -->
@@ -45,7 +58,7 @@
                     <button
                         class="btn btn-success"
                         onclick="alterarScore('A', 'inc')"
-                        aria-label="Adicionar ponto ao Time A"
+                        aria-label="{% trans 'Adicionar ponto ao Time A' %}"
                     >
                         +
                     </button>
@@ -53,14 +66,14 @@
                     <button
                         class="btn btn-danger"
                         onclick="alterarScore('A', 'dec')"
-                        aria-label="Remover ponto do Time A"
+                        aria-label="{% trans 'Remover ponto do Time A' %}"
                     >
                         −
                     </button>
                 </div>
 
                 <div class="victories">
-                    Vitórias: <span id="victory-A">{{ victory_a }}</span>
+                    {% trans "Vitórias:" %} <span id="victory-A">{{ victory_a }}</span>
                 </div>
             </div>
         </div>
@@ -78,7 +91,7 @@
                     <button
                         class="btn btn-success"
                         onclick="alterarScore('B', 'inc')"
-                        aria-label="Adicionar ponto ao Time B"
+                        aria-label="{% trans 'Adicionar ponto ao Time B' %}"
                     >
                         +
                     </button>
@@ -86,14 +99,14 @@
                     <button
                         class="btn btn-danger"
                         onclick="alterarScore('B', 'dec')"
-                        aria-label="Remover ponto do Time B"
+                        aria-label="{% trans 'Remover ponto do Time B' %}"
                     >
                         −
                     </button>
                 </div>
 
                 <div class="victories">
-                    Vitórias: <span id="victory-B">{{ victory_b }}</span>
+                    {% trans "Vitórias:" %} <span id="victory-B">{{ victory_b }}</span>
                 </div>
             </div>
         </div>
@@ -101,7 +114,7 @@
 
     <!-- Área de Anúncio - Meio -->
     <div class="ad-container ad-middle d-none">
-        <div class="ad-label">Publicidade</div>
+        <div class="ad-label">{% trans "Publicidade" %}</div>
         <!-- Google AdSense - Banner Meio -->
         <div class="ad-content">
             <!-- Cole aqui seu código do Google AdSense -->
@@ -109,7 +122,7 @@
 
             <!-- Placeholder temporário - REMOVA após adicionar seu anúncio -->
             <div class="ad-placeholder ">
-                <span>📢 Espaço reservado para anúncio</span>
+                <span>📢 {% trans "Espaço reservado para anúncio" %}</span>
                 <small>Retângulo 300x250 ou Banner 728x90</small>
             </div>
         </div>
@@ -120,15 +133,15 @@
         <button
             class="btn btn-primary btn-reset"
             id="btn-reset"
-            aria-label="Resetar placar"
+            aria-label="{% trans 'Resetar placar' %}"
         >
-            Resetar Placar
+            {% trans "Resetar Placar" %}
         </button>
     </div>
 
     <!-- Área de Anúncio - Rodapé -->
     <div class="ad-container ad-footer">
-        <div class="ad-label">Publicidade</div>
+        <div class="ad-label">{% trans "Publicidade" %}</div>
         <!-- Google AdSense - Banner Rodapé -->
         <div class="ad-content">
             <!-- Cole aqui seu código do Google AdSense -->
@@ -136,7 +149,7 @@
 
             <!-- Placeholder temporário - REMOVA após adicionar seu anúncio -->
             <div class="ad-placeholder">
-                <span>📢 Espaço reservado para anúncio</span>
+                <span>📢 {% trans "Espaço reservado para anúncio" %}</span>
                 <small>Banner 728x90</small>
             </div>
         </div>
@@ -145,7 +158,7 @@
 
 <!-- Footer -->
 <footer class="site-footer d-none">
-    <p>Placar de Truco DMS Sistemas &copy; 2026</p>
+    <p>{% trans "Placar de Truco DMS Sistemas" %} &copy; 2026</p>
 </footer>
 
 <script>

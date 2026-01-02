@@ -9,4 +9,5 @@ urlpatterns = [
     path("status/", views.StatusView.as_view(), name="status"),
     path("change/", views.ModifyView.as_view(), name="change"),
     path("reset/", views.ResetView.as_view(), name="reset"),
+    path("set-language/", views.SetLanguageView.as_view(), name="set_language"),
 ]

@@ -1,0 +1,79 @@
+# Spanish translations for Placar de Truco
+# Copyright (C) 2026
+# This file is distributed under the same license as the project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-02 00:00+0000\n"
+"PO-Revision-Date: 2026-01-02 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# Templates translations
+msgid "Placar de Truco Digital"
+msgstr "Marcador de Truco Digital"
+
+msgid "Placar digital de truco online grátis. Acompanhe seus jogos de truco, marque pontos e tentos facilmente. Interface moderna e intuitiva para jogar truco com amigos."
+msgstr "Marcador digital de truco online gratis. Sigue tus juegos de truco, anota puntos y tentos fácilmente. Interfaz moderna e intuitiva para jugar truco con amigos."
+
+msgid "Placar de Truco"
+msgstr "Marcador de Truco"
+
+msgid "Placar digital de truco online grátis. Marque pontos e tentos facilmente com interface moderna e intuitiva."
+msgstr "Marcador digital de truco online gratis. Anota puntos y tentos fácilmente con interfaz moderna e intuitiva."
+
+msgid "Placar digital de truco online grátis. Marque pontos e tentos facilmente."
+msgstr "Marcador digital de truco online gratis. Anota puntos y tentos fácilmente."
+
+msgid "Publicidade"
+msgstr "Publicidad"
+
+msgid "Espaço reservado para anúncio"
+msgstr "Espacio reservado para anuncio"
+
+msgid "Placar Digital"
+msgstr "Marcador Digital"
+
+msgid "Adicionar ponto ao Time A"
+msgstr "Añadir punto al Equipo A"
+
+msgid "Remover ponto do Time A"
+msgstr "Quitar punto al Equipo A"
+
+msgid "Adicionar ponto ao Time B"
+msgstr "Añadir punto al Equipo B"
+
+msgid "Remover ponto do Time B"
+msgstr "Quitar punto al Equipo B"
+
+msgid "Vitórias:"
+msgstr "Victorias:"
+
+msgid "Resetar placar"
+msgstr "Reiniciar marcador"
+
+msgid "Resetar Placar"
+msgstr "Reiniciar Marcador"
+
+msgid "Placar de Truco DMS Sistemas"
+msgstr "Marcador de Truco DMS Sistemas"
+
+# Models translations
+msgid "Time A"
+msgstr "Equipo A"
+
+msgid "Time B"
+msgstr "Equipo B"
+
+msgid "Partida"
+msgstr "Partida"
+
+msgid "Vencedor"
+msgstr "Ganador"

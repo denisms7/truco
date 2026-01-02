@@ -1,6 +1,7 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="{{ LANGUAGE_CODE }}">
 
 <head>
     <meta charset="utf-8" />
@@ -8,12 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- SEO Meta Tags -->
-    <title>{% block title %}Placar de Truco Digital{% endblock %}</title>
-    <meta name="description" content="{% block description %}Placar digital de truco online grátis. Acompanhe seus jogos de truco, marque pontos e tentos facilmente. Interface moderna e intuitiva para jogar truco com amigos.{% endblock %}" />
+    <title>{% block title %}{% trans "Placar de Truco Digital" %}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% trans "Placar digital de truco online grátis. Acompanhe seus jogos de truco, marque pontos e tentos facilmente. Interface moderna e intuitiva para jogar truco com amigos." %}{% endblock %}" />
     <meta name="keywords" content="truco, placar de truco, contador de truco, truco online, marcador de truco, placar digital, jogo de truco, pontuação truco, truco paulista, truco mineiro" />
-    <meta name="author" content="Placar de Truco" />
+    <meta name="author" content="{% trans "Placar de Truco" %}" />
     <meta name="robots" content="index, follow" />
-    <meta name="language" content="Portuguese" />
+    <meta name="language" content="{% if LANGUAGE_CODE == 'pt-br' %}Portuguese{% else %}Spanish{% endif %}" />
     <meta name="revisit-after" content="7 days" />
     <meta name="theme-color" content="#1a1a1a" />
 
@@ -26,23 +27,32 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{% block og_url %}{{ request.build_absolute_uri }}{% endblock %}" />
-    <meta property="og:title" content="{% block og_title %}Placar de Truco Digital{% endblock %}" />
-    <meta property="og:description" content="{% block og_description %}Placar digital de truco online grátis. Marque pontos e tentos facilmente com interface moderna e intuitiva.{% endblock %}" />
+    <meta property="og:title" content="{% block og_title %}{% trans "Placar de Truco Digital" %}{% endblock %}" />
+    <meta property="og:description" content="{% block og_description %}{% trans "Placar digital de truco online grátis. Marque pontos e tentos facilmente com interface moderna e intuitiva." %}{% endblock %}" />
     <meta property="og:image" content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'img/icone.png' %}{% endblock %}" />
     <meta property="og:image:width" content="1024" />
     <meta property="og:image:height" content="1024" />
-    <meta property="og:locale" content="pt_BR" />
-    <meta property="og:site_name" content="Placar de Truco" />
+    <meta property="og:locale" content="{% if LANGUAGE_CODE == 'pt-br' %}pt_BR{% else %}es_ES{% endif %}" />
+    <meta property="og:site_name" content="{% trans "Placar de Truco" %}" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="{% block twitter_url %}{{ request.build_absolute_uri }}{% endblock %}" />
-    <meta name="twitter:title" content="{% block twitter_title %}Placar de Truco Digital{% endblock %}" />
-    <meta name="twitter:description" content="{% block twitter_description %}Placar digital de truco online grátis. Marque pontos e tentos facilmente.{% endblock %}" />
+    <meta name="twitter:title" content="{% block twitter_title %}{% trans "Placar de Truco Digital" %}{% endblock %}" />
+    <meta name="twitter:description" content="{% block twitter_description %}{% trans "Placar digital de truco online grátis. Marque pontos e tentos facilmente." %}{% endblock %}" />
     <meta name="twitter:image" content="{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'img/icone.png' %}{% endblock %}" />
 
     <!-- Canonical URL -->
     <link rel="canonical" href="{% block canonical %}{{ request.build_absolute_uri }}{% endblock %}" />
+
+    <!-- Hreflang tags for International SEO -->
+    <link rel="alternate" hreflang="pt-br" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}" />
+    <link rel="alternate" hreflang="es" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}" />
+    <link rel="alternate" hreflang="es-AR" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}" />
+    <link rel="alternate" hreflang="es-MX" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}" />
+    <link rel="alternate" hreflang="es-ES" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}" />
+    <link rel="alternate" hreflang="pt-PT" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}" />
+    <link rel="alternate" hreflang="x-default" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

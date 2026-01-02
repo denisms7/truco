@@ -4,6 +4,8 @@ from django.http import JsonResponse
 from django.views import View
 from django.views.decorators.http import require_POST
 from django.utils.decorators import method_decorator
+from django.utils import translation
+from django.shortcuts import redirect
 from score.services import save_score
 
 
@@ -116,3 +118,33 @@ class ResetView(View):
                 "victory_b": 0,
             }
         )
+
+
+class SetLanguageView(View):
+    """
+    View para trocar o idioma manualmente.
+    Aceita GET com parâmetro ?lang=es ou ?lang=pt-br
+    """
+    http_method_names = ["get"]
+
+    def get(self, request, *args, **kwargs):
+        language = request.GET.get('lang', 'pt-br')
+
+        # Valida idiomas suportados
+        if language not in ['pt-br', 'es']:
+            language = 'pt-br'
+
+        # Ativa o idioma
+        translation.activate(language)
+
+        # Salva no cookie para próximas visitas
+        response = redirect(request.META.get('HTTP_REFERER', '/'))
+        response.set_cookie(
+            'django_language',
+            language,
+            max_age=365*24*60*60,  # 1 ano
+            path='/',
+            samesite='Lax'
+        )
+
+        return response
