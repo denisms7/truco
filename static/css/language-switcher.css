@@ -46,6 +46,16 @@
     background: transparent;
     cursor: pointer;
     opacity: 0.6;
+    overflow: hidden;
+}
+
+.flag-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: brightness(0.9);
 }
 
 .language-link::before {
@@ -65,9 +75,18 @@
     opacity: 0.9;
 }
 
+.language-link:hover .flag-icon {
+    filter: brightness(1.1);
+    transform: scale(1.05);
+}
+
 .language-link.active {
     opacity: 1;
     transform: scale(1.15);
+}
+
+.language-link.active .flag-icon {
+    filter: brightness(1);
 }
 
 .language-link.active::before {
@@ -76,6 +95,10 @@
 
 .language-link.active:hover {
     transform: scale(1.25);
+}
+
+.language-link.active:hover .flag-icon {
+    filter: brightness(1.15);
 }
 
 /* Efeito de pulso no idioma ativo */
@@ -105,9 +128,13 @@
     }
 
     .language-link {
-        font-size: 1.5rem;
         width: 2rem;
         height: 2rem;
+    }
+
+    .flag-icon {
+        width: 100%;
+        height: 100%;
     }
 
     .language-link:hover {
@@ -137,9 +164,13 @@
     }
 
     .language-link {
-        font-size: 1.25rem;
         width: 1.75rem;
         height: 1.75rem;
+    }
+
+    .flag-icon {
+        width: 100%;
+        height: 100%;
     }
 
     .language-link:hover {
