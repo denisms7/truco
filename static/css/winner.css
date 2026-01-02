@@ -1,0 +1,140 @@
+/* ===== VITÓRIA ===== */
+.winner {
+    animation: pulse-winner 0.5s ease-in-out 3;
+    position: relative;
+}
+
+.winner::after {
+    content: '🏆';
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    font-size: 3rem;
+    animation: trophy-appear 0.6s ease-out forwards;
+}
+
+@keyframes pulse-winner {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes trophy-appear {
+    0% {
+        transform: translateX(-50%) scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(-50%) scale(1.2) rotate(180deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) scale(1) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+.winner .score-number {
+    color: var(--primary) !important;
+    text-shadow: 0 0 30px rgba(251, 191, 36, 0.8),
+                 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== CONFETE ===== */
+.confetti {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 99999;
+}
+
+.confetti span {
+    position: absolute;
+    border-radius: 2px;
+    opacity: 0.9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.confetti span[data-direction="top"] {
+    animation: confetti-fall-top ease-out forwards;
+}
+
+.confetti span[data-direction="bottom"] {
+    animation: confetti-fall-bottom ease-out forwards;
+}
+
+.confetti span[data-direction="left"] {
+    animation: confetti-fall-left ease-out forwards;
+}
+
+.confetti span[data-direction="right"] {
+    animation: confetti-fall-right ease-out forwards;
+}
+
+@keyframes confetti-fall-top {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(55vh) translateX(var(--drift)) rotate(540deg) scale(1.1);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(110vh) translateX(var(--drift)) rotate(1080deg) scale(0.8);
+        opacity: 0.2;
+    }
+}
+
+@keyframes confetti-fall-bottom {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-55vh) translateX(var(--drift)) rotate(-540deg) scale(1.1);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(-110vh) translateX(var(--drift)) rotate(-1080deg) scale(0.8);
+        opacity: 0.2;
+    }
+}
+
+@keyframes confetti-fall-left {
+    0% {
+        transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(55vw) translateY(var(--drift)) rotate(540deg) scale(1.1);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateX(110vw) translateY(var(--drift)) rotate(1080deg) scale(0.8);
+        opacity: 0.2;
+    }
+}
+
+@keyframes confetti-fall-right {
+    0% {
+        transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-55vw) translateY(var(--drift)) rotate(-540deg) scale(1.1);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateX(-110vw) translateY(var(--drift)) rotate(-1080deg) scale(0.8);
+        opacity: 0.2;
+    }
+}
