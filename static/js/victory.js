@@ -2,12 +2,6 @@ function destacarVitoria(time) {
     const scoreEl = document.getElementById(`score-${time}`);
     if (!scoreEl) return;
 
-    const card = scoreEl.closest('.score-card');
-    if (card) {
-        card.classList.add("winner");
-        setTimeout(() => card.classList.remove("winner"), 2000);
-    }
-
     scoreEl.classList.add("winner");
     setTimeout(() => scoreEl.classList.remove("winner"), 2000);
 }
