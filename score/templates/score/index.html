@@ -9,7 +9,7 @@
 <div id="confetti" class="confetti"></div>
 
 <!-- Language Switcher -->
-<div class="language-switcher">
+<div class="language-switcher d-none">
     <div class="language-switcher-container">
         <a href="{% url 'score:set_language' %}?lang=pt-br"
            class="language-link {% if LANGUAGE_CODE == 'pt-br' %}active{% endif %}"
@@ -50,36 +50,36 @@
     </header>
 
     <!-- Score Grid -->
-    <div class="row" style="gap: 2rem; margin-top: 2rem;">
+    <div class="row" style="gap: 1rem; margin-top: 1rem;">
         <!-- TIME A -->
         <div class="col-6 text-center">
             <div class="score-card team-a">
-                <div class="score-icon">♣️</div>
-
-                <div id="score-A" class="score-number">
-                    {{ score_a }}
-                </div>
-
-                <div class="btn-group">
+                <div class="score-layout">
                     <button
-                        class="btn btn-success"
-                        onclick="alterarScore('A', 'inc')"
-                        aria-label="{% trans 'Adicionar ponto ao Time A' %}"
-                    >
-                        +
-                    </button>
-
-                    <button
-                        class="btn btn-danger"
+                        class="btn btn-side btn-danger btn-left"
                         onclick="alterarScore('A', 'dec')"
                         aria-label="{% trans 'Remover ponto do Time A' %}"
                     >
                         −
                     </button>
-                </div>
 
-                <div class="victories">
-                    {% trans "Vitórias:" %} <span id="victory-A">{{ victory_a }}</span>
+                    <div class="score-content">
+                        <div class="score-icon">♣️</div>
+                        <div id="score-A" class="score-number">
+                            {{ score_a }}
+                        </div>
+                        <div class="victories">
+                            {% trans "Vitórias:" %} <span id="victory-A">{{ victory_a }}</span>
+                        </div>
+                    </div>
+
+                    <button
+                        class="btn btn-side btn-success btn-right"
+                        onclick="alterarScore('A', 'inc')"
+                        aria-label="{% trans 'Adicionar ponto ao Time A' %}"
+                    >
+                        +
+                    </button>
                 </div>
             </div>
         </div>
@@ -87,32 +87,32 @@
         <!-- TIME B -->
         <div class="col-6 text-center">
             <div class="score-card team-b">
-                <div class="score-icon">♥️</div>
-
-                <div id="score-B" class="score-number">
-                    {{ score_b }}
-                </div>
-
-                <div class="btn-group">
+                <div class="score-layout">
                     <button
-                        class="btn btn-success"
-                        onclick="alterarScore('B', 'inc')"
-                        aria-label="{% trans 'Adicionar ponto ao Time B' %}"
-                    >
-                        +
-                    </button>
-
-                    <button
-                        class="btn btn-danger"
+                        class="btn btn-side btn-danger btn-left"
                         onclick="alterarScore('B', 'dec')"
                         aria-label="{% trans 'Remover ponto do Time B' %}"
                     >
                         −
                     </button>
-                </div>
 
-                <div class="victories">
-                    {% trans "Vitórias:" %} <span id="victory-B">{{ victory_b }}</span>
+                    <div class="score-content">
+                        <div class="score-icon">♥️</div>
+                        <div id="score-B" class="score-number">
+                            {{ score_b }}
+                        </div>
+                        <div class="victories">
+                            {% trans "Vitórias:" %} <span id="victory-B">{{ victory_b }}</span>
+                        </div>
+                    </div>
+
+                    <button
+                        class="btn btn-side btn-success btn-right"
+                        onclick="alterarScore('B', 'inc')"
+                        aria-label="{% trans 'Adicionar ponto ao Time B' %}"
+                    >
+                        +
+                    </button>
                 </div>
             </div>
         </div>
@@ -139,8 +139,6 @@
 
     <!-- Área de Anúncio - Rodapé -->
     <div class="ad-container ad-footer">
-        <div class="ad-label">{% trans "Publicidade" %}</div>
-        <!-- Google AdSense - Banner Rodapé -->
         <div class="ad-content">
             <!-- Recomendado: Banner 728x90 (Desktop) ou 320x100 (Mobile) -->
             

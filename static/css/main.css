@@ -26,9 +26,14 @@
     --club: #06b6d4;
 }
 
+html {
+    overflow-y: auto;
+}
+
 body {
     font-family: 'Inter', 'Roboto', system-ui, -apple-system, "Segoe UI", sans-serif;
     background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    background-attachment: fixed;
     color: var(--text-main);
     min-height: 100vh;
     overflow-x: hidden;
@@ -54,13 +59,13 @@ body::before {
     z-index: 1;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 1rem 1rem;
 }
 
 /* Header */
 .game-header {
     text-align: center;
-    padding: 2rem 0 1rem;
+    padding: 1rem 0 0.5rem;
 }
 
 .game-title {
@@ -185,7 +190,46 @@ body::before {
     margin-left: 0.5rem;
 }
 
-/* Button Group */
+/* Score Layout - Botões laterais */
+.score-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 0.5rem;
+    min-height: 300px;
+}
+
+.score-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-side {
+    flex: 0 0 auto;
+    width: 80px;
+    padding: 1rem 0.5rem;
+    font-size: 2.5rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    writing-mode: horizontal-tb;
+    min-height: 100%;
+}
+
+.btn-left {
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+}
+
+.btn-right {
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+
+/* Button Group - mantido para compatibilidade */
 .btn-group {
     display: flex;
     gap: 0.75rem;
@@ -200,15 +244,15 @@ body::before {
     backdrop-filter: blur(10px);
     border: 1px solid var(--card-border);
     border-radius: 1rem;
-    padding: 1rem;
-    margin: 1.5rem auto;
-    max-width: 750px;
-    min-height: 100px;
+    padding: 0.5rem;
+    margin: 1rem auto;
+    max-width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
 }
 
 .ad-label {
@@ -228,7 +272,7 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 90px;
+    min-height: 60px;
     color: var(--text-muted);
     font-size: 0.875rem;
 }
@@ -261,26 +305,25 @@ body::before {
 }
 
 .ad-top {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
 
 .ad-middle {
-    margin-top: 2.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .ad-footer {
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 /* Reset Section */
 .reset-section {
     text-align: center;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--card-border);
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
 }
 
 /* Site Footer */
@@ -325,17 +368,31 @@ body::before {
     }
 
     .score-card {
-        padding: 2rem 1rem;
+        padding: 1.5rem 0.75rem;
         margin-bottom: 1.5rem;
         border-radius: 1.25rem;
     }
 
     .score-icon {
-        margin-bottom: 0.75rem;
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        margin-bottom: 0.5rem;
     }
 
     .score-number {
-        margin: 1rem 0;
+        font-size: clamp(3rem, 10vw, 5rem);
+        margin: 0.75rem 0;
+    }
+
+    /* Score Layout Mobile */
+    .score-layout {
+        min-height: 200px;
+        gap: 0.5rem;
+    }
+
+    .btn-side {
+        width: 50px;
+        font-size: 1.75rem;
+        padding: 0.5rem 0.25rem;
     }
 
     .btn-group {
@@ -344,19 +401,19 @@ body::before {
     }
 
     .victories {
-        font-size: 0.875rem;
-        padding: 0.625rem 1.25rem;
-        margin-top: 1rem;
+        font-size: 0.75rem;
+        padding: 0.5rem 1rem;
+        margin-top: 0.75rem;
     }
 
     .victories span {
-        font-size: 1.125rem;
+        font-size: 1rem;
     }
 
     .reset-section {
-        margin-top: 2rem;
-        padding-top: 1.5rem;
-        margin-bottom: 2rem;
+        margin-top: 1rem;
+        padding-top: 0.5rem;
+        margin-bottom: 1rem;
     }
 
     /* Ads no mobile */
