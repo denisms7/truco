@@ -16,10 +16,7 @@ DEBUG = bool(int(os.getenv('DEBUG', 0)))
 for x in range(5):
     print(f"DEBUG: {DEBUG}")
 
-ALLOWED_HOSTS = [
-    h.strip() for h in os.getenv('ALLOWED_HOSTS', '').split(',')
-    if h.strip()
-]
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
